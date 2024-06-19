@@ -11,7 +11,7 @@ Output (centered around Y axis):
                                               ██     ██   █  ██ ██    ██
                                              ████   ███████ ██   ██  ████
 
-Example: ./rt Hello,\ World!
+Example: ./rt Hello, World!
 Output:
 
         ██  ██           ███     ███                            ██   ██                  ███       ███     ██
