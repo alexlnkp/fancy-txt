@@ -31,6 +31,15 @@ void render(size_t start_x, size_t start_y, size_t n_char, char *bitmap) {
     }
 }
 
+void draw_text(char* restrict text, size_t cols, size_t rows) {
+    size_t arglen = strlen(text);
+    for (size_t i = 0; i < arglen; ++i) {
+        size_t center_x = (cols - (arglen * BITMAP_RES)) >> 1;
+        size_t center_y = (rows - BITMAP_RES) >> 1;
+        render(center_x, center_y, i, font8x8_basic[text[i]]);
+    }
+}
+
 int main(int argc, char* argv[]) {
     setlocale(LC_ALL, "");
 
@@ -47,12 +56,7 @@ int main(int argc, char* argv[]) {
         usage(argv[0], rows, cols);
         __exit_code = -1; goto exit;
     } else {
-        size_t arglen = strlen(argv[1]);
-        for (size_t i = 0; i < arglen; ++i) {
-            size_t center_x = (cols - (arglen * BITMAP_RES)) >> 1;
-            size_t center_y = (rows - BITMAP_RES) >> 1;
-            render(center_x, center_y, i, font8x8_basic[argv[1][i]]);
-        }
+        draw_text(argv[1], cols, rows);
     }
 
 exit:
