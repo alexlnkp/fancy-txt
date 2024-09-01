@@ -1,4 +1,6 @@
-Simple text drawing using NCurses
+Simple text drawing using NCurses.
+
+This was made for a meme
 
 Usage: ./rt TEXT
 Output (centered around Y axis):
